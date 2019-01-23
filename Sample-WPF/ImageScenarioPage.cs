@@ -332,17 +332,28 @@ namespace VisionAPI_WPF_Samples
                 stringBuilder.AppendLine();
                 foreach (var item in results.Regions)
                 {
+                    stringBuilder.AppendLine("---- START REGION ----");
+                    stringBuilder.AppendLine("[BOUNDING BOX]: ");
+                    
+                    foreach (var coord in item.BoundingBox)
+                    {
+                        stringBuilder.Append(coord.ToString());
+                        stringBuilder.Append(" ");
+                    }
+                    stringBuilder.AppendLine();
+                    
                     foreach (var line in item.Lines)
                     {
+                       
                         foreach (var word in line.Words)
                         {
                             stringBuilder.Append(word.Text);
                             stringBuilder.Append(" ");
                         }
-
                         stringBuilder.AppendLine();
+                       
                     }
-
+                    stringBuilder.AppendLine("---- END REGION ----");
                     stringBuilder.AppendLine();
                 }
             }
@@ -364,12 +375,19 @@ namespace VisionAPI_WPF_Samples
                 stringBuilder.AppendLine();
                 foreach (var line in results.RecognitionResult.Lines)
                 {
+                    
                     foreach (var word in line.Words)
                     {
                         stringBuilder.Append(word.Text);
                         stringBuilder.Append(" ");
+                        
                     }
-
+                    stringBuilder.Append("[BOUNDING BOX] ");
+                    foreach (var coord in line.BoundingBox)
+                    {
+                        stringBuilder.Append(coord.ToString());
+                        stringBuilder.Append(" ");
+                    }
                     stringBuilder.AppendLine();
                     stringBuilder.AppendLine();
                 }

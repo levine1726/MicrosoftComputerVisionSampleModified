@@ -61,7 +61,7 @@ namespace VisionAPI_WPF_Samples
         }
 
         /// <summary>
-        /// Gets the TextRecognitionMode value from the UI.
+        /// s the TextRecognitionMode value from the UI.
         /// </summary>
         /// <returns>TextRecognitionMode enumerated type value.</returns>
         private TextRecognitionMode RecognitionMode => (TextRecognitionMode)Enum.Parse(typeof(TextRecognitionMode), _mode.Text);
